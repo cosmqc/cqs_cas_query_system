@@ -1,0 +1,36 @@
+@startuml(id=business)
+
+package business {
+    class JavaScriptBridge {
+      + getInfo(int): JSONObject
+      + getCrashIDFromClick(int): void
+    }
+
+    class CrashManager {
+      + addCrash(Crash, String): void
+      + updateCrash(int, String, String, String): void
+      + getCrashBatch(int): ArrayList<Crash>
+      + getMapKeyBatch(int): ArrayList<MapKey>
+      + deleteCrash(Crash, String): void
+      + addInitialCrashesToDatabase(Importable<Crash>, String, String): void
+    }
+
+
+    class QueryManager {
+      + removeCriterion(QueryCriterion): void
+      + executeQuery(String): ArrayList<Crash>
+      + addCriterion(AttributeType, String, OperatorType): void
+    }
+
+    class WindowState {
+      - currentTable: String
+      - currentQuery: Query
+      - currentController: ViewController
+      - instance: WindowState
+    }
+}
+
+CrashManager                   -[#595959,plain]->  WindowState
+
+
+@enduml

@@ -1,0 +1,47 @@
+/*
+Styling for the query builder
+ */
+.border-pane {
+    -fx-background-color: #DCF5FF;
+    -fx-padding: 0 0 15 0;
+}
+
+.split-pane {
+    -fx-background-color: #DCF5FF;
+}
+
+.split-pane-divider {
+    -fx-background-color: transparent;
+}
+
+.combo-box {
+    -fx-font-family: "Roboto Light";
+    -fx-background-color: #5DADE2;
+    -fx-font-size: 16px;
+}
+
+.text-field {
+    -fx-border-color: #A2DBF9;
+}
+
+.button {
+    -fx-background-color: #A2DBF9;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 16;
+    -fx-text-alignment: left;
+}
+
+.button:hover {
+    -fx-background-color: #B3EAF7;
+}
+
+.list-view {
+    -fx-border-color: #A2DBF9;
+}
+
+.titleText {
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 16;
+    -fx-font-style: italic;
+}
+

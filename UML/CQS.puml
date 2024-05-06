@@ -1,0 +1,52 @@
+@startuml CQS_full
+
+top to bottom direction
+skinparam linetype ortho
+skinparam style strictuml
+hide empty members
+
+!include Controller.puml!controller
+!include Models.puml!models
+!include Repository.puml!repo
+!include IO.puml!io
+!include Business.puml!business
+
+
+class InstanceAlreadyExistsException
+
+AddDataModalController         -[#595959,plain]->  Crash
+AddDataModalController         -[#595959,plain]->  CrashManager
+AddDataModalController         -[#595959,plain]->  WindowState
+CSVImporter                    -[#595959,dashed]-> Attribute
+CSVImporter                     -[#595959,dashed]-> Crash
+CrashDAO                       -[#595959,dashed]-> Attribute
+CrashDAO                       -[#595959,dashed]-> Crash
+CrashDAO                       -[#595959,dashed]-> MapKey
+CrashManager                   -[#595959,dashed]-> CrashDAO
+DatabaseManager                -[#595959,dashed]-> CSVImporter
+DatabaseManager                -[#595959,dashed]-> InstanceAlreadyExistsException
+EditDataModalController        -[#595959,plain]->  CrashManager
+EditDataModalController        -[#595959,dashed]-> QueryManager
+GraphingController             -[#595959,plain]->  CrashManager
+GraphingController             -[#595959,plain]->  WindowState
+JavaScriptBridge               -[#595959,plain]->  CrashManager
+LoadDataController             -[#595959,dashed]-> CSVImporter
+LoadDataController             -[#595959,plain]->  WindowState
+MainController                 -[#595959,plain]->  ModalType
+MainController                 -[#595959,plain]->  WindowState
+MappingController              -[#595959,plain]->  CrashManager
+MappingController              -[#595959,dashed]-> JavaScriptBridge
+Query                          -[#595959,dashed]-> Attribute
+Query                          -[#595959,plain]->  QueryCriterion
+QueryBuilder                   -[#595959,dashed]-> Query
+QueryBuilder                   -[#595959,plain]->  QueryCriterion
+QueryManager                   -[#595959,plain]->  QueryBuilder
+QueryManager                   -[#595959,dashed]-> QueryCriterion
+QueryModalController           -[#595959,plain]->  QueryCriterion
+QueryModalController           -[#595959,plain]->  QueryManager
+QueryModalController           -[#595959,plain]->  WindowState
+RawDataController              -[#595959,plain]->  WindowState
+WindowState                    -[#595959,plain]->  Query
+WindowState                    -[#595959,plain]->  ViewController
+
+@enduml

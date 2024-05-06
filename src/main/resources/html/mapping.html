@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapping</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://www.unpkg.com/prunecluster@2.1.0/dist/LeafletStyleSheet.css" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+<script src ="https://www.unpkg.com/prunecluster@2.1.0/dist/PruneCluster.js"></script>
+<script>
+  let map;
+  let markers = [];
+  var javaScriptBridge;
+  var pruneCluster;
+
+  let jsConnector = {
+      initMap: initMap,
+      addPinToMap: addPinToMap,
+      clearMap: clearMap,
+      processView: processView
+  }
+
+  /**
+   * Creates and initialises the open street map instance provided by UC teaching team.
+   */
+  function initMap() {
+      var mapOptions = {
+          center: [-41, 173],
+          zoom: 5.5
+      }
+      map = new L.map('map', mapOptions);
+      new L.TileLayer('https://tile.csse.canterbury.ac.nz/hot/{z}/{x}/{y}.png', { // UCs tilemap server
+          attribution: '© OpenStreetMap contributors<br>Served by University of Canterbury'
+      }).addTo(map)
+
+      pruneCluster = new PruneClusterForLeaflet();
+      map.addLayer(pruneCluster);
+
+      pruneCluster.PrepareLeafletMarker = function (marker, data) {
+          marker.on('click', function (e) {
+              // Access the marker's data to retrieve the popup content
+              setPopupDetails(data.id, data.isCustom, marker);
+          });
+      };
+  }
+
+
+  /**
+   * Populates the popup with the information of the crash.
+   * Calls the function getInfo(id, isCustom) in the javaScriptBridge
+   * @param id
+   * @param m
+   */
+  function setPopupDetails(id, isCustom, m) {
+      var data = JSON.parse(javaScriptBridge.getInfo(id, isCustom));
+      let popupContent = `
+        <div class="custom-popup">
+            <table>
+                <tr>
+                    <td><strong>Year:</strong></td>
+                    <td>${data['year']}</td>
+                </tr>
+                <tr>
+                    <td><strong>Location:</strong></td>
+                    <td>${data['location']}</td>
+                </tr>
+                <tr>
+                    <td><strong>Severity:</strong></td>
+                    <td>${data['severity']}</td>
+                </tr>
+                <tr>
+                    <td><strong>People and Vehicles Involved:</strong></td>
+                    <td>${data['peopleAndVehicles']}</td>
+                </tr>
+                <tr>
+                    <td><strong>Objects Involved:</strong></td>
+                    <td>${data['objects']}</td>
+                </tr>
+                <tr>
+                    <td><strong>Speed Conditions:</strong></td>
+                    <td>${data['speed']}</td>
+                </tr>
+                <tr>
+                    <td><strong>Weather:</strong></td>
+                    <td>${data['weather']}</td>
+                </tr>
+                <tr>
+                    <td><strong>Traffic Control:</strong></td>
+                    <td>${data['traffic']}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+<!--                        <button id="openInCas">Open in CAS Viewer</button>-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    `;
+      var popup = L.popup()
+          .setLatLng(m.getLatLng()) // Set the popup's position to the marker's position
+          .setContent(popupContent)
+          .openOn(map);
+  }
+
+  /**
+   * Removes markers from the map.
+   */
+  function clearMap() {
+      pruneCluster.RemoveMarkers(markers);
+  }
+
+  /**
+   * Calls pruneCluster's proccessView which is required to implement changes.
+   */
+  function processView(){
+      pruneCluster.ProcessView();
+  }
+
+  /**
+   * Adds a marker on the map for a crash.
+   * @param id CrashID.
+   * @param isCustom the custom flg for the crash, separates user data and uploaded data
+   * @param lat Latitude value of the crash.
+   * @param lon Longitude value of the crash.
+   */
+  function addPinToMap(id, isCustom, lat, lon) {
+      if (lon < 0) {
+          lon = (lon + 360);
+      }
+
+      let m = new PruneCluster.Marker(lat, lon, {popup: id.toString(), id:id, isCustom:isCustom});
+      markers.push(m);
+      pruneCluster.RegisterMarker(m);
+  }
+
+</script>
+</body>
+</html>

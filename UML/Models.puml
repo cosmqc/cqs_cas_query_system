@@ -1,0 +1,98 @@
+@startuml(id=models)
+
+top to bottom direction
+
+package Models {
+    class Attribute {
+      + Attribute (AttributeType type, String value) <<constructor>>
+    }
+
+    enum AttributeType << enumeration >> {
+      + AttributeType(String prettyPrint, ClassType classType)
+      + fromString(String): AttributeType
+    }
+
+    class QueryBuilder {
+      + setCriteria(List<QueryCriterion>): void
+      + removeCriterion(QueryCriterion): void
+      + getCriteria(): List<QueryCriterion>
+      + addCriterion(QueryCriterion): void
+      + build(): Query
+    }
+
+    class QueryCriterion {
+      - operator: OperatorType
+      - attribute: AttributeType
+      - value: String
+    }
+
+    enum ClassType << enumeration >> {
+      + INT:
+      + FLOAT:
+      + STRING:
+    }
+
+    class Condition {
+      + getWeatherString(): String
+      + getConditionAttributes(): ArrayList<Attribute>
+      + getSpeedString(): String
+    }
+    class Crash {
+      + getAttribute(AttributeType): Object
+      + setAttribute(AttributeType, String): void
+      + addCrashAttributes(HashMap<AttributeType, Attribute>): void
+      + getCrashDetailAttributes(): ArrayList<Attribute>
+    }
+    class Location {
+      + getLocationString(): String
+      + getLocationAttributes(): ArrayList<Attribute>
+    }
+
+    class MapKey {
+      - id: int
+      - lat: float
+      - lon: float
+    }
+
+    enum ModalType << enumeration >> {
+      + LOAD_DATA:
+      + QUERY:
+      + NONE:
+      + values(): ModalType[]
+      + valueOf(String): ModalType
+    }
+
+    enum OperatorType << enumeration >> {
+      + LESS_THAN:
+      + NOT_EQUAL_TO:
+      + niceFormat: String
+      + EQUAL_TO:
+      + GREATER_THAN:
+      + simplePrint: String
+      + fromString(String): OperatorType
+    }
+
+    class Participants {
+      - addObstaclesInvolved(HashMap<AttributeType, Attribute>): void
+      - addVehiclesInvolved(HashMap<AttributeType, Attribute>): void
+      + checkVehicleInvolvement(Attribute): void
+      - multiplier(Attribute, int): String
+      - checkObstacleInvolvement(Attribute): void
+    }
+}
+
+
+Attribute                      -[#595959,plain]->  AttributeType
+AttributeType                  -[#595959,plain]->  ClassType
+Condition                      -[#595959,plain]->  Attribute
+Crash                          -[#595959,plain]->  Attribute
+Crash                          -[#595959,plain]->  AttributeType
+Crash                          -[#595959,plain]->  Condition
+Crash                          -[#595959,plain]->  Location
+Crash                          -[#595959,plain]->  Participants
+Location                       -[#595959,plain]->  Attribute
+Participants                   -[#595959,plain]->  Attribute
+QueryCriterion                 -[#595959,plain]->  AttributeType
+QueryCriterion                 -[#595959,plain]->  OperatorType
+
+@enduml

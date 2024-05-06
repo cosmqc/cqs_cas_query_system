@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.*?>
+
+<SplitPane dividerPositions="1.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/graphing.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team9.gui.GraphingController">
+    <items>
+        <VBox maxWidth="250" minWidth="250" spacing="10" styleClass="vbox" stylesheets="@../CSS/graphing.css">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <VBox spacing="10" styleClass="vbox" stylesheets="@../CSS/graphing.css" VBox.vgrow="ALWAYS">
+                    <ComboBox fx:id="categoryComboBox" maxWidth="1.7976931348623157E308" onAction="#updateAttributes" promptText="Category" styleClass="combo-box" stylesheets="@../CSS/graphing.css">
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </ComboBox>
+                    <CheckComboBox fx:id="attributesCheckComboBox" maxWidth="1.7976931348623157E308" stylesheets="@../CSS/graphing.css" title="Attributes">
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </CheckComboBox>
+                    <ComboBox fx:id="graphTypeComboBox" maxWidth="1.7976931348623157E308" promptText="Graph Type" stylesheets="@../CSS/graphing.css">
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </ComboBox>
+                </VBox>
+                <Button fx:id="generateGraphBtn" maxWidth="1.7976931348623157E308" onMouseClicked="#generateGraph" stylesheets="@../CSS/graphing.css" text="Generate Graph" VBox.vgrow="NEVER" />
+            </children>
+        </VBox>
+        <AnchorPane>
+            <StackPane fx:id="chartContainer" styleClass="stack-pane" stylesheets="@../CSS/graphing.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        </AnchorPane>
+    </items>
+</SplitPane>

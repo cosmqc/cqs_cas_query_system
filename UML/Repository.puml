@@ -1,0 +1,36 @@
+@startuml(id=repo)
+
+package Repository {
+
+
+    class CrashDAO {
+      + addItemsToNewTable(String, List<Crash>): void
+      + getAllByName(String): ArrayList<Crash>
+      + addItemsToNewTable(String, Crash): void
+      + addItemsToExistingTable(String, List<Crash>): void
+      + getCrashesFromSQL(String): ArrayList<Crash>
+      + getIntFromSQL(String): int
+      + update(int, String, String, String): void
+      + delete(int, String): void
+      + addItemToExistingTable(String, Crash): void
+    }
+
+    class Query {
+      + generateSQL(String): List<Crash>
+      + toString(): String
+    }
+
+    class DatabaseManager {
+      + executeSQL(String): void
+      - createDatabaseFile(String): void
+      - executeSQLScript(InputStream): void
+      + createNewTable(String): void
+      + resetDB(): void
+    }
+}
+
+Query                          -[#595959,plain]->  DatabaseManager
+CrashDAO                       -[#595959,plain]->  DatabaseManager
+
+
+@enduml

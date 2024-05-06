@@ -1,0 +1,16 @@
+/*
+Styling for the toolbar and the components inside it
+ */
+.button {
+    -fx-background-color: #A2DBF9;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 16px;
+}
+
+.button:hover {
+    -fx-background-color: #B3EAF7;
+}
+
+.tool-bar {
+    -fx-background-color: #DCF5FF;
+}

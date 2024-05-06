@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="397.0" styleClass="grid-pane" stylesheets="@../CSS/loadData.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team9.gui.LoadDataController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="10.0" prefWidth="288.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="62.0" valignment="TOP" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="171.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="24.0" valignment="TOP" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="203.0" minHeight="10.0" prefHeight="56.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="375.0" minHeight="0.0" prefHeight="26.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="433.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="433.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="583.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="583.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="Upload CSV File" wrappingWidth="340.140625" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="Table Selection:" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <RadioButton fx:id="existingTableButton" mnemonicParsing="false" prefWidth="123.0" styleClass="button" text="Existing" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <toggleGroup>
+            <ToggleGroup fx:id="tableSelectionToggleGroup" />
+         </toggleGroup>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></RadioButton>
+      <RadioButton fx:id="newTableButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="78.0" styleClass="button" text="New" toggleGroup="$tableSelectionToggleGroup" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></RadioButton>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="Table Name:" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Button mnemonicParsing="false" onMouseClicked="#loadRawDataTableView" text="Load Data" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></Button>
+      <TextField fx:id="tableNameField" editable="false" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
+       <Button fx:id="uploadFile" mnemonicParsing="false" onMouseClicked="#getCsvFile" prefHeight="154.0" prefWidth="207.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+         <graphic>
+            <ImageView fitHeight="95.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/uploadIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ListView fx:id="existingTableNames" prefHeight="170.0" prefWidth="363.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+      </ListView>
+      <Button fx:id="closeBtn" mnemonicParsing="false" onMouseClicked="#close" prefHeight="30.0" prefWidth="63.0" text="Close" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="Existing Tables:" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</GridPane>

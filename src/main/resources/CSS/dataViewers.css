@@ -1,0 +1,119 @@
+/*
+Styling for the border pane
+ */
+.border-pane {
+    -fx-padding: 0 0 15 0;
+    -fx-background-color: #DCF5FF;
+}
+
+/*
+Styling for the top anchor pane and the components in it
+ */
+.button {
+    -fx-background-color: #A2DBF9;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 16px;
+}
+
+.button:hover {
+    -fx-background-color: #B3EAF7;
+}
+
+.combo-box {
+    -fx-font-family: "Roboto";
+    -fx-background-color: #5DADE2;
+}
+
+.tool-bar {
+    -fx-background-color: #DCF5FF;
+}
+
+.Text {
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 16px;
+}
+
+.anchor-pane {
+    -fx-background-color: #DCF5FF;
+}
+
+/*
+Styling for the table
+ */
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: #5DADE2;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: #5DADE2;
+}
+
+.table-view .corner {
+    -fx-background-color: #5DADE2;
+}
+
+.table-row-cell{
+    -fx-background-color: #A2DBF9, white;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #B3EAF7;
+}
+
+/*
+Scroll bar
+ */
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: white;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, #5DADE2, #B3EAF7);
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, #5DADE2, #B3EAF7);
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+/*
+Styling for the pagination specific components
+ */
+.text-field {
+    -fx-border-color: #A2DBF9;
+}
+
+.pagination .page{
+    -fx-background-color: #A2DBF9;
+}
+
+.pagination > .pagination-control > .control-box > .number-button {
+    -fx-background-color: #B3EAF7;
+    -fx-font-family: "Roboto";
+}
+
+.pagination > .pagination-control > .control-box >. number-button:hover {
+    -fx-background-color: #A2DBF9;
+    -fx-text-fill: black;
+}
+
+.pagination > .pagination-control > .control-box >. number-button:selected {
+    -fx-background-color: #5DADE2;
+    -fx-text-fill: white;
+}
+

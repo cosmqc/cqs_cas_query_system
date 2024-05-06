@@ -1,0 +1,23 @@
+@startuml(id=io)
+
+package io {
+    class CSVImporter {
+      + getLastLogLevel(): String
+      + setLastLogLevel(String): void
+      + readInitialFileBatch(String, int): List<Crash>
+      + readCrashFromLine(String[]): Crash
+      - readFile(CSVReader, int): List<Crash>
+      + readFileBatch(File, int): List<Crash>
+    }
+
+    interface Importable<Crash> << interface >> {
+      + LOAD_BATCH_NO: int
+      + readFileBatch(File, int): List<Crash>
+      + readInitialFileBatch(String, int): List<Crash>
+    }
+}
+
+CSVImporter                    -[#008200,dashed]-^ Importable
+
+
+@enduml

@@ -1,0 +1,99 @@
+@startuml(id=controller)
+
+
+top to bottom direction
+skinparam linetype ortho
+
+
+package GUI {
+
+    class MainController {
+      + loadCASTableView(Stage): void
+      + loadMapView(Stage): void
+      + loadGraphView(Stage): void
+      + loadRawTableView(Stage): void
+      + loadLoadDataModal(): void
+      + loadQueryModal(): void
+    }
+
+    interface ViewController << interface >> {
+      + init(Stage): void
+      + refreshView(): void
+    }
+
+    class RawDataController {
+      - createPage(int): Node
+      - removeColumn(AttributeType): void
+      + openRowEditor(Crash): void
+      + openAddNewCrash(): void
+      + deleteCrash(): void
+      + updateCrash(): void
+      + refreshView(): voids
+    }
+
+    class SimpleDataController {
+      + initializeTable(TableView<Crash>): void
+      + refreshView(): void
+    }
+
+    class AddDataModalController {
+      + generateEmptyCrash(): Crash
+      + addCrash(): void
+      + setAttribute(CellEditEvent<Attribute, String>): void
+      + discardChanges(): void
+    }
+
+    class EditDataModalController {
+      + changeData(CellEditEvent<Attribute, String>): void
+      + validateIDChange(String): boolean
+      + validateChanges(AttributeType, String): boolean
+      + executeUpdates(): void
+    }
+
+    class GraphingController {
+      - generateGraphXY(String): void
+      - generateGraphPie(): void
+      + generateGraph(): void
+      - addDataAndDisplayChart(Chart): void
+    }
+
+
+
+    class MappingController {
+      - javaScriptBridge: JavaScriptBridge
+      - addCrashesOnMap(): void
+      + refreshView(): void
+      - initMap(): void
+    }
+
+
+    class QueryModalController {
+      + populateLabel(String): void
+      + removeQuery(): void
+      + executeQuery(): void
+      + checkAddToQueryBtn(): void
+      + addToQuery(): void
+      + clearQuery(): void
+    }
+
+    class LoadDataController {
+      + init(Stage, MainController): void
+      - loadRawDataTableView(): void
+      - validateTableName(String): boolean
+      + close(): void
+      ~ getCsvFile(): void
+      + initialize(): void
+      - checkCSVImporterErrors(): boolean
+    }
+}
+
+
+
+
+LoadDataController             -[#595959,plain]->  MainController
+MappingController              -[#008200,dashed]-^ ViewController
+QueryModalController           -[#595959,plain]->  MainController
+RawDataController              -[#008200,dashed]-^ ViewController
+SimpleDataController           -[#008200,dashed]-^ ViewController
+
+@enduml

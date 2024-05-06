@@ -1,0 +1,77 @@
+/*
+Styling for the graphing page
+ */
+.split-pane {
+    -fx-background-color: #DCF5FF;
+}
+
+.split-pane-divider {
+    -fx-background-color: #DCF5FF;
+}
+
+.combo-box {
+    -fx-font-family: "Roboto Light";
+    -fx-background-color: #5DADE2;
+    -fx-font-size: 16;
+}
+
+.button {
+    -fx-background-color: #A2DBF9;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 16px;
+}
+
+.button:hover {
+    -fx-background-color: #B3EAF7;
+}
+
+.vbox {
+    -fx-background-color: #DCF5FF;
+}
+
+.stack-pane {
+    -fx-background-color: white;
+}
+
+
+.bar-chart .chart-bar {
+    -fx-bar-fill: #A2DBF9;
+}
+
+
+.chart-series-line {
+    -fx-stroke: #A2DBF9;
+
+}
+
+.chart-line-symbol {
+    -fx-background-color: #5DADE2;
+}
+
+.chart-symbol {
+    -fx-background-color: #5DADE2;
+}
+
+/* Styling for AreaChart with the class my-area-chart */
+
+.my-area-chart .chart-series-area-fill {
+    -fx-fill: #A2DBF9;  /* Fill color for the area below the line */
+}
+
+.my-area-chart .chart-series-area-line {
+    -fx-stroke: #5DADE2;  /* Stroke color for the line itself */
+}
+
+.my-area-chart .chart-area-symbol {
+    /* Work around for styling the data points using custom nodes*/
+    -fx-background-color: #3498DB, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+
+
+
+
+

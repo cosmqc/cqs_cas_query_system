@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="457.0" prefWidth="645.0" styleClass="border-pane" stylesheets="@../CSS/queryBuilder.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team9.gui.QueryModalController">
+   <center>
+      <SplitPane dividerPositions="0.5" prefHeight="409.0" prefWidth="645.0">
+         <items>
+            <AnchorPane prefHeight="425.0" prefWidth="320.0">
+               <children>
+                  <VBox layoutX="48.0" layoutY="160.0" prefHeight="138.0" prefWidth="246.0">
+                     <children>
+                        <ComboBox fx:id="attributeComboBox" prefHeight="41.0" prefWidth="252.0" promptText="Select Attribute" styleClass="combo-box" stylesheets="@../CSS/queryBuilder.css" />
+                        <ComboBox fx:id="operatorComboBox" prefHeight="40.0" prefWidth="250.0" promptText="Select Operator" styleClass="combo-box" stylesheets="@../CSS/queryBuilder.css" />
+                        <TextField fx:id="valueTextField" prefHeight="44.0" prefWidth="220.0" promptText="Enter Statement" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="addToQueryBtn" layoutX="114.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#addToQuery" text="Add to Query" />
+                  <Label fx:id="possibleValuesLabel" layoutX="48.0" layoutY="75.0" prefHeight="85.0" prefWidth="245.0" />
+                  <Button fx:id="closeBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#close" text="Close" />
+               </children>
+            </AnchorPane>
+          <AnchorPane>
+               <children>
+                  <Label layoutX="105.0" layoutY="67.0" styleClass="titleText" text="Current Query:" />
+                  <Button fx:id="removeQueryBtn" layoutX="36.0" layoutY="340.0" mnemonicParsing="false" onAction="#removeQuery" text="Remove Selected" />
+                  <ListView fx:id="currentCriteria" layoutX="35.0" layoutY="93.0" prefHeight="240.0" prefWidth="237.0" />
+                  <Button fx:id="clearQueryBtn" layoutX="192.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#clearQuery" text="Clear All" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="45.0" prefWidth="656.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="executeQueryBtn" layoutX="262.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#executeQuery" stylesheets="@../CSS/queryBuilder.css" text="Execute Query" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

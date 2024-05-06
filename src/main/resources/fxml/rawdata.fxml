@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.controlsfx.control.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="border-pane" stylesheets="@../CSS/dataViewers.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng202.team9.gui.RawDataController">
+   <top>
+      <AnchorPane prefHeight="48.0" prefWidth="600.0" styleClass="anchor-pane" stylesheets="@../CSS/dataViewers.css" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar layoutY="3.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../CSS/dataViewers.css" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+              <items>
+                  <CheckComboBox fx:id="filterCheckComboBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../CSS/dataViewers.css" title="Filter" />
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deleteCrash" stylesheets="@../CSS/dataViewers.css" text="Delete">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openAddNewCrash" stylesheets="@../CSS/dataViewers.css" text="Add">
+                     <font>
+                        <Font name="Cambria" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#updateCrash" stylesheets="@../CSS/dataViewers.css" text="Update">
+                      <font>
+                          <Font name="Cambria" size="15.0" />
+                      </font>
+                  </Button>
+              </items>
+            </ToolBar>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+        <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+            <Button fx:id="firstPageButton" mnemonicParsing="false" onMouseClicked="#selectFirstPage" text="&lt;&lt;" HBox.hgrow="NEVER">
+               </Button>
+            <TextField fx:id="specificPageSelect" alignment="CENTER" maxHeight="1.7976931348623157E308">
+               </TextField>
+            <Button fx:id="lastPageButton" mnemonicParsing="false" onMouseClicked="#selectLastPage" text="&gt;&gt;">
+               </Button>
+        </HBox>
+   </bottom>
+   <center>
+        <Pagination fx:id="pageSelect" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
