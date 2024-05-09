@@ -1,6 +1,14 @@
-## TEAM 9 - CQS APP
+## CQS - CAS Query System
+CQS is designed to be a more user-friendly way to view the NZTA's CAS dataset.
 
-## Authors
+Features include:
+- Querying
+- Pagination
+- File upload
+- Graphing
+- Mapping (with OpenStreetMap)
+
+## Authors - Team 9
 - Jerico Flores
 - Isaac Steele
 - Jake Dalton
@@ -14,9 +22,9 @@
 
 ## What's Included
 This project come with:
-- The application's jar seng202_team9-2.0.jar, located in build/libs
-- CSV file's filled with a small number of crash entries. To allow you to quickly load a new dataset in yourself.
-- All of your custom saved data is stored in crashes.db . Do not delete this file if you would like to keep you changes.
+- The application's jar `seng202_team9-3.0.jar`, located in build/libs
+- CSV files filled with a small number of crash entries. This allows you to easy load in a new dataset.
+- All of your custom saved data is stored in `crashes.db`. Do not delete this file if you would like to keep your changes.
 
 
 ## Importing Project (Using IntelliJ)
@@ -35,13 +43,13 @@ You can run the project through your IDE from the main class (App.java) or use t
 To run the app from the PROJECT
 - If you haven't already, Build the project.
 - Open a command line interface inside the project directory (You should now be in team9 directory.)
-- Run the command java -jar build/libs/seng202_team9-3.0.jar 
+- Run the command `java -jar build/libs/seng202_team9-3.0.jar`
 
 ## To run the app from the ZIP
-- Navigate to the seng202_2023_team9_3.0 folder
-- Double-click on the jar seng202_team9-3.0.jar
+- Navigate to the `seng202_2023_team9_3.0` folder
+- Double-click on the jar `seng202_team9-3.0.jar`
 OR
-- In the terminal navigate to the seng202_2023_team9_3.0 folder
-- Execute the command java -jar seng202_team9-3.0.jar 
+- In the terminal navigate to the `seng202_2023_team9_3.0` folder
+- Execute the command `java -jar seng202_team9-3.0.jar`
 - Some test files are supplied, the app doesn't depend on these but are provided for convenience
 
